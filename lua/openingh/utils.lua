@@ -210,6 +210,12 @@ function M.open_url(url)
     return true
   end
 
+  local _, err = vim.ui.open(url)
+  if err == nil then
+    vim.ui.open(url)
+    return true
+  end
+
   -- order here matters
   -- wsl must come before win
   -- wsl must come before linux
